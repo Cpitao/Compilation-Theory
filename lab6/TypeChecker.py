@@ -272,9 +272,9 @@ class TypeChecker(NodeVisitor):
         t2 = self.visit(node.exp1)
         if t1 != "int" or t2 != "int":
             print(SemanticError("matrix_index_value_err", node.line))
-        if not (0 < node.exp0.value < vtype[1]):
+        if not (0 <= node.exp0.value < vtype[1]):
             print(SemanticError("index_out_of_range_err", node.line, node.exp0.value))
-        if not (0 < node.exp1.value < vtype[2]):
+        if not (0 <= node.exp1.value < vtype[2]):
             print(SemanticError("index_out_of_range_err", node.line, node.exp1.value))
 
         return vtype[0]
